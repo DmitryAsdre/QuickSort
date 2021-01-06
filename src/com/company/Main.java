@@ -5,19 +5,26 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-        int size = 21;
+        int size = 10000;
         int[] array = new int[size];
         int[] check = new int[size];
         final Random random = new Random();
-        for(int i = 0; i < size; i++) {
-            array[i] = random.nextInt(100);
-            check[i] = array[i];
-        }
+        for(int j = 0; j < 10000; j++) {
+            for (int i = 0; i < size; i++) {
+                array[i] = random.nextInt(100);
+                check[i] = array[i];
+            }
 
-        System.out.println(Arrays.toString(array));
-        QuickSort.quick_sort(array, 0, size);
-        System.out.println(Arrays.toString(array));
-        Arrays.sort(check);
-        System.out.println(Arrays.toString(check));
+            //System.out.println(Arrays.toString(array));
+            QuickSort.quick_sort(array, 0, size);
+            //System.out.println(Arrays.toString(array));
+            Arrays.sort(check);
+            //System.out.println(Arrays.toString(check));
+            if (!Arrays.equals(check, array)){
+                System.out.println("Failed");
+            }
+            //System.out.println(Arrays.equals(check, array));
+        }
+        System.out.println("Passed");
     }
 }
